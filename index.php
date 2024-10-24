@@ -9,10 +9,7 @@ use akou\ArrayUtils;
 
 
 $l = new SuperRest();
-$params = $l->getMethodParams();
-
-
-
+$codes = $l->getMethodParams();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +19,19 @@ $params = $l->getMethodParams();
 	<link rel="stylesheet" href="style.css" crossorigin="anonymous">
 	<script src="JsBarcode.all.min.js"></script>
 	<script src="generator.js"></script>
+	<script>
+		var grap_codes = <?=json_encode($codes, JSON_PRETTY_PRINT)?>;
+	</script>
 </head>
 <body>
-<?if($error):?>
+<?php if($error):?>
 	<div>Error: <?=$error?></div>
-<?else:?>
+<?php else:?>
+	<?php foreach($codes as $index=>$code):?>
 	<div class="page">
-	<?foreach($params as $code):?>
-		
-	<?endfor;?>
+		<canvas id="p_<?=$index?>" width="400" height="200"></canvas>
 	</div>
-<?endif;?>
+	<?php endforeach;?>
+<?php endif;?>
 </body>
 </html>
