@@ -1,4 +1,32 @@
-.page
+.barcode-container 
 {
-	page-break-after: always;
+	display: block;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.qr-container 
+{
+	display: inline-block;
+	text-align: center;
+	margin: 10px;
+	vertical-align: top;
+}
+
+.serial-text 
+{
+	margin-top: 3px;
+	font-size: 14px;
+	min-height: 20px;
+}
+
+.single-page 
+{
+    page-break-after: always;
+}
+
+.multiple-page 
+{
+    display: inline-block;
+    margin: 10px;
 }
